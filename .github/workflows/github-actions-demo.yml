@@ -23,7 +23,7 @@ jobs:
         DRY_RUN: true
     - run: echo "VALUEEEE ISS ${{ env.new_tag }}"
       env:
-        TAG: ${{ new_tag }}
+        TAG: ${{ env.new_tag }}
 #     - name: Sample
 #       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
     
