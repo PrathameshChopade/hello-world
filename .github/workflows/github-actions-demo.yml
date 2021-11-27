@@ -22,6 +22,7 @@ jobs:
         WITH_V: true
         DRY_RUN: true
     - run: echo "VALUEEEE ISS ${{ steps.version.outputs.new_tag }}"
+    - run: echo "HOME IS ${{ HOME }}"
     - name: Maven Build
       run: mvn clean install
   
