@@ -1,0 +1,39 @@
+name: GitHub Actions Demo
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: '0'
+    - name: Ctag
+      id: version
+      uses: anothrNick/github-tag-action@1.36.0
+      #run: echo "::set-output name=author::$(uses anothrNick/github-tag-action@1.36.0)"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        WITH_V: true
+#       DRY_RUN: true
+        
+#     - name: Sample
+#       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
+    
+#     - name: Maven Build
+#       run: mvn clean install
+  
+#     - uses: actions/checkout@v2
+#     - uses: actions/setup-java@v2
+#       with:
+#           java-version: '11'
+#           distribution: 'adopt'
+#     - name: Publish package
+#       run: mvn deploy -Dversion=r203 -Dregistry=https://github.com/Nikhil-Kaware/Test_Devops.git
+#       env:
+#           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
