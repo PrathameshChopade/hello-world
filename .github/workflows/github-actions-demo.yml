@@ -21,7 +21,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         WITH_V: true
         DRY_RUN: true
-    - run: echo "VALUEEEE ISS ${{ new_tag }}"
     - run: echo "VALUEEEE ISS ${{ env.new_tag }}"
 #     - name: Sample
 #       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
