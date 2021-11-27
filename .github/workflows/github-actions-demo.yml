@@ -22,8 +22,7 @@ jobs:
         WITH_V: true
         DRY_RUN: true
     - run: echo "VALUEEEE ISS ${{ steps.version.outputs.new_tag }}"
-      env:
-        TAG: ${{ steps.Ctag.outputs.new_tag }}
+    
 #     - name: Sample
 #       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
     
