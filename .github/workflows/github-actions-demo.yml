@@ -22,7 +22,9 @@ jobs:
         WITH_V: true
         DRY_RUN: true
     - run: echo "VALUEEEE ISS ${{ steps.version.outputs.new_tag }}"
-    
+    - name: Maven Build
+      run: mvn clean install
+  
   publish:
     runs-on: ubuntu-latest 
     permissions: 
@@ -38,6 +40,7 @@ jobs:
         run: mvn --batch-mode deploy
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
 #     - name: Sample
 #       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
     
