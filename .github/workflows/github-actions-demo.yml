@@ -23,6 +23,16 @@ jobs:
         DRY_RUN: true
     - run: echo "VALUEEEE ISS ${{ steps.version.outputs.new_tag }}"
     
+  publish:
+    runs-on: ubuntu-latest 
+    permissions: 
+      contents: read
+      packages: write 
+    steps:
+    - name: Publish to GitHub Packages
+      run: mvn --batch-mode deploy
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 #     - name: Sample
 #       run: echo "Hello $DRY_RUN.tag $DRY_RUN.new_tag  today is Monday!"
     
